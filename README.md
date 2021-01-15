@@ -45,11 +45,13 @@ After completing this assignment, you be able to effectively use
 
 > Make sure the output matches the answers below for each question. Make sure to comment your code as you walk through your process.
 
-#### Questions & Answers
+#### Questi\
 
 1. Show me how to calculate the average price of all items.
 
+// sum of all items with a price, divided by the number of items with a price //
   ```
+
   The average price is $23.63
   ```
 
