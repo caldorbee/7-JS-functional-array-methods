@@ -49,7 +49,6 @@ After completing this assignment, you be able to effectively use
 
 1. Show me how to calculate the average price of all items.
 
-// sum of all items with a price, divided by the number of items with a price //
   ```
 
   The average price is $23.63
