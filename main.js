@@ -25,9 +25,9 @@ let itemNamePrice = filteredItems.map (function (name) {
     return `${name.title}<br>`
 })
 
-console.log(itemNamePrice)
+let htmlStr = itemNamePrice.join ('')
 
-document.querySelector(`#answer2`).innerHTML = (itemNamePrice)
+document.querySelector(`#answer2`).innerHTML = (htmlStr)
 
 // filter array to find item listed in "GBP"
 // list the items name and price on the web page
@@ -37,7 +37,7 @@ let gbp = items.filter (function (item) {
     })
 
 let gbpNamePrice = gbp.map (function (item) {
-    return `${item.title} costs ${item.price}`
+    return `${item.title} costs $${item.price}`
 })
 
 document.querySelector(`#answer3`).innerHTML = (gbpNamePrice)
@@ -45,15 +45,17 @@ document.querySelector(`#answer3`).innerHTML = (gbpNamePrice)
 // filter the items array for items made of wood
 // list those items on the web page
 
-let woodItems = items.filter (function (wooden) {
-    let newArray = wooden.materials.includes ('wood')
-    return newArray
+let woodItems = items.filter (function (wooden) { 
+    return wooden.materials.includes ('wood')
 })
 
-let woodArray = woodItems.filter (function (items) {
-    
+let woodArray = woodItems.map (function (items) {
+    return `${items.title}<br>`
 })
-// document.querySelector(`#answer4`).innerHTML =
+
+let htmlStr2 = woodArray.join ('')
+
+ document.querySelector(`#answer4`).innerHTML = (htmlStr2)
 
 
 // filter array to determine how mainy items are made from 8 or more materials
@@ -64,15 +66,22 @@ let eightOrMore = items.filter (function (item) {
     return item.materials.length >= 8
     })
 
-// document.querySelector(`#answer4`).innerHTML =
+let newArray = eightOrMore.map (function (item) {
+    return `${item.title} has ${item.materials.length} materials:<br> ${item.materials}<br>` 
+})
+
+let htmlStr3 = newArray.join ('')
+
+document.querySelector(`#answer5`).innerHTML = (htmlStr3)
 
 // filter the array for items that are made by the seller
 // list the number + "were made by their sellers"
 
 
 let sellerMade = items.filter (function (item) {
-    let newArray = item.who_made.includes ("i_did")
-    return newArray
+    return item.who_made.includes ("i_did")
     })
 
-// document.querySelector(`#answer6`).innerHTML =
+let htmlStr4 = `${sellerMade.length} were made by their sellers`
+
+document.querySelector(`#answer6`).innerHTML = (htmlStr4)
