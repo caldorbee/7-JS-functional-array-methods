@@ -66,13 +66,18 @@ let eightOrMore = items.filter (function (item) {
     return item.materials.length >= 8
     })
 
-let newArray = eightOrMore.map (function (item) {
-    return `${item.title} has ${item.materials.length} materials:<br> ${item.materials}<br>` 
+let eightMapped = eightOrMore.map (function (item) {
+    let eightMaterials = item.materials.map (function (a) {
+        return `${a}`
+    })
+    return eightMaterials.join ('<br>')
 })
 
-let htmlStr3 = newArray.join ('')
+let newArray =
+`${eightOrMore[0].title} has ${eightOrMore[0].materials.length} materials:<br>${eightMapped[0]}<br>
+${eightOrMore[1].title} has ${eightOrMore[1].materials.length} materials:<br>${eightMapped[1]}`
 
-document.querySelector(`#answer5`).innerHTML = (htmlStr3)
+document.querySelector(`#answer5`).innerHTML = (newArray)
 
 // filter the array for items that are made by the seller
 // list the number + "were made by their sellers"
